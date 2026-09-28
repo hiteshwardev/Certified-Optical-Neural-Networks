@@ -1,6 +1,6 @@
 # Certified error and output-power bounds for deep loss-compensated photonic networks
 
-Hitesh Kumar Singh, Department of Physics, MNS Government College, Bhiwani, Haryana, India
+Hitesh Kumar Singh, Department of Physics, Kurukshetra University, Kurukshetra, Haryana, India
 
 This repository contains the complete computational study behind the article of the same title. Deep photonic processors that restore optical loss with gain are built from non-unitary, and in general non-normal, layers. The study derives and tests
 
