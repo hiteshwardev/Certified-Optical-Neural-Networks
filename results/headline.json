@@ -1,0 +1,55 @@
+{
+ "constructed family: largest S_cert/S_spec (L = 16)": 65.1644351276097,
+ "constructed family: kappa(V), M at that point": [
+  13.189285551741145,
+  12.707997408327968
+ ],
+ "constructed family: singular-value contrast (dB)": 39.843850080259315,
+ "physical layer: contrast needed for the same ratio (dB)": 8.169979347004197,
+ "physical layer: attainable ratio at 8.7 dB (Delta = 1)": 100.24033321731996,
+ "random cascades: largest median S_cert/S_spec on the B15 grid": 4.2539347459652355,
+ "random cascades: median at L = 2048, n = 8, Delta = 0.5 and 1": [
+  9.14140583896769,
+  9.718244040977897
+ ],
+ "deep-cascade limit R_inf(8), closed form": 9.872728586196871,
+ "deep-cascade limit, fitted (n = 8, Delta = 1)": [
+  9.889666134496736,
+  0.015476953178056387
+ ],
+ "collapse constant x0 and rms deviation": [
+  1.0119463658170444,
+  0.020162055039137105
+ ],
+ "median S_Lip/S_cert, largest on the grid": 4267.020302079112,
+ "joint worst case S_joint/S_cert, smallest median": 0.8896483016037072,
+ "structured faults: slope of eta against L": [
+  -0.7300798052898592,
+  -0.8170631384392887,
+  -0.7247516113415938,
+  -0.8717797286389372
+ ],
+ "small-disorder law: largest |6(n+1)s^2/Delta^2 - 1|, Delta <= 0.1": 0.0013677964494465122,
+ "tail, Haar, c = 2: measured, tier 0, tier 1, tier 2, floor": [
+  0.035025,
+  0.5,
+  0.4791792785788771,
+  0.19344105304109072,
+  0.11310851001874718
+ ],
+ "tail: largest observed G^2 (Haar, Givens, Fourier)": [
+  6.109096328341722,
+  7.69003326998826,
+  7.030690206884387
+ ],
+ "calibration tolerance ln 2/(2L) at L = 64, 256, 1024": [
+  0.0054152123481245725,
+  0.0013538030870311431,
+  0.0003384507717577858
+ ],
+ "benchmarks passed / failed / descriptive": [
+  37,
+  3,
+  3
+ ]
+}

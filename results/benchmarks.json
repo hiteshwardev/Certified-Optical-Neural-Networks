@@ -1,0 +1,348 @@
+{
+ "rows": [
+  {
+   "id": "B1",
+   "benchmark": "single-mode drift and variance",
+   "introduced": "original plan",
+   "criterion": "|MC - exact| < 4 SE",
+   "measured": "max 1.43 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "B2",
+   "benchmark": "unitary limit of S_cert, S_Lip, M, kappa(V), chi, K and xi",
+   "introduced": "original plan",
+   "criterion": "deviations < 1e-6, |xi| < 1e-12",
+   "measured": "3.8e-12, |xi| <= 2.2e-16",
+   "status": "PASS"
+  },
+  {
+   "id": "V1",
+   "benchmark": "sandwich and Kreiss matrix theorem on 20 random matrices",
+   "introduced": "amendment A6",
+   "criterion": "every margin >= 1 - 1e-3",
+   "measured": "min K/kappa* = 1.0000, min M/K = 1.0123, min kappa(V)/M = 1.2626, min enK/M = 7.3468",
+   "status": "PASS"
+  },
+  {
+   "id": "B7",
+   "benchmark": "exact bound never exceeded (600 trials)",
+   "introduced": "original plan",
+   "criterion": "max error/bound <= 1",
+   "measured": "0.410",
+   "status": "PASS"
+  },
+  {
+   "id": "B8",
+   "benchmark": "rank-one perturbation attains ||A|| ||B|| eps (1000 triples)",
+   "introduced": "original plan",
+   "criterion": "min ratio >= 0.99",
+   "measured": "1.000000000000",
+   "status": "PASS"
+  },
+  {
+   "id": "B10a",
+   "benchmark": "martingale E[exp(2 xi)] = 1",
+   "introduced": "original plan",
+   "criterion": "|MC - 1| < 4 SE",
+   "measured": "max 1.06 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "V2",
+   "benchmark": "exact Haar moments q = 2, 3",
+   "introduced": "amendment A6",
+   "criterion": "|MC - exact| < 4 SE",
+   "measured": "max 1.63 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "V3",
+   "benchmark": "two-mode fixed-loss integral",
+   "introduced": "original plan",
+   "criterion": "|MC - exact| < 4 SE",
+   "measured": "0.36 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "V4",
+   "benchmark": "exact tail of the mode-diagonal cascade",
+   "introduced": "amendment A6",
+   "criterion": "|MC - exact| < 4 SE",
+   "measured": "max 0.86 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "V5",
+   "benchmark": "batched and explicit cascades agree",
+   "introduced": "amendment A6",
+   "criterion": "two-sample KS p > 0.01",
+   "measured": "p = 0.890",
+   "status": "PASS"
+  },
+  {
+   "id": "B3",
+   "benchmark": "Kreiss lower arm K <= M",
+   "introduced": "original plan",
+   "criterion": "K <= 1.02 M at every point",
+   "measured": "0 of 120 violate; min M/K = 1.0000",
+   "status": "PASS"
+  },
+  {
+   "id": "B4",
+   "benchmark": "Kreiss matrix theorem M <= e n K",
+   "introduced": "original plan",
+   "criterion": "no violation",
+   "measured": "0 of 120 violate; min enK/M = 4.091",
+   "status": "PASS"
+  },
+  {
+   "id": "B5",
+   "benchmark": "Petermann lower bound K >= max(1, kappa*)",
+   "introduced": "original plan",
+   "criterion": "K >= 0.98 max(1, kappa*)",
+   "measured": "0 of 120 violate; min K/kappa* = 1.0000",
+   "status": "PASS"
+  },
+  {
+   "id": "B6",
+   "benchmark": "full sandwich max(1, kappa*) <= K <= M <= kappa(V)",
+   "introduced": "original plan",
+   "criterion": "zero violations at 2% tolerance",
+   "measured": "0 of 120 violate",
+   "status": "PASS"
+  },
+  {
+   "id": "B13",
+   "benchmark": "kappa(V) orders M and S_cert at fixed spectrum",
+   "introduced": "original plan",
+   "criterion": "Spearman >= 0.99 for both; S_spec = L to 1e-9",
+   "measured": "Spearman 0.9994, 0.9980; max |S_spec/L - 1| = 2.2e-14",
+   "status": "PASS"
+  },
+  {
+   "id": "B14",
+   "benchmark": "eigenvalue predictor underestimates S_cert",
+   "introduced": "original plan",
+   "criterion": "max S_cert/S_spec >= 10",
+   "measured": "65.16",
+   "status": "PASS"
+  },
+  {
+   "id": "C2",
+   "benchmark": "Kreiss constant converged",
+   "introduced": "original plan",
+   "criterion": "relative change < 1e-2 on grid doubling",
+   "measured": "3.8e-08",
+   "status": "PASS"
+  },
+  {
+   "id": "C3",
+   "benchmark": "peak transient converged",
+   "introduced": "original plan",
+   "criterion": "relative change < 5e-3 from k = 512 to 1024",
+   "measured": "0.0e+00",
+   "status": "PASS"
+  },
+  {
+   "id": "V6",
+   "benchmark": "Clements decomposition reconstructs the optimal mesh",
+   "introduced": "amendment A6",
+   "criterion": "max |U - U_rebuilt| < 1e-10",
+   "measured": "1.9e-15",
+   "status": "PASS"
+  },
+  {
+   "id": "B15",
+   "benchmark": "ten-fold eigenvalue deficit on random cascades",
+   "introduced": "amendment A1",
+   "criterion": "max median > 10 and depth Spearman >= 0.95",
+   "measured": "max median 4.25; min Spearman 1.000",
+   "status": "FAIL"
+  },
+  {
+   "id": "V7",
+   "benchmark": "frame-volume Lyapunov spectrum equals QR iteration",
+   "introduced": "amendment A6",
+   "criterion": "|difference| < 4 SE",
+   "measured": "max 1.04 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "B22",
+   "benchmark": "median S_cert/S_spec at L = 256, n = 8 (300 cascades)",
+   "introduced": "amendment A5",
+   "criterion": "descriptive",
+   "measured": "Delta = 1.0: 8.39 [8.29, 8.47], Delta = 0.5: 5.81 [5.75, 5.89]",
+   "status": "reported"
+  },
+  {
+   "id": "B24",
+   "benchmark": "fitted deep-cascade limit equals R_inf(n)",
+   "introduced": "amendment A6 (post hoc)",
+   "criterion": "|R_fit / R_inf - 1| < 0.05 for every series",
+   "measured": "max 0.068",
+   "status": "FAIL"
+  },
+  {
+   "id": "B18",
+   "benchmark": "median S_Lip/S_cert on the grid",
+   "introduced": "amendment A3",
+   "criterion": "descriptive",
+   "measured": "up to 4.27e+03 (Delta = 1.0, L = 32); at L = 2048 the median is 10^157 and 10^288 (Delta = 0.5, 1)",
+   "status": "reported"
+  },
+  {
+   "id": "B23",
+   "benchmark": "median S_cert/(L rho(P)) next to S_cert/S_spec, n = 8",
+   "introduced": "amendment A5",
+   "criterion": "descriptive",
+   "measured": "at L = 2048: [11.5, 14.5] against [9.14, 9.72] (Delta = 0.5, 1)",
+   "status": "reported"
+  },
+  {
+   "id": "B12",
+   "benchmark": "small-disorder law 6(n + 1) s^2 / Delta^2 -> 1",
+   "introduced": "original plan",
+   "criterion": "|ratio - 1| < 0.05 for Delta <= 0.1, n = 2 to 16",
+   "measured": "max 0.0014",
+   "status": "PASS"
+  },
+  {
+   "id": "B10b",
+   "benchmark": "cumulant identity mu + s^2 = O(Delta^3)",
+   "introduced": "original plan",
+   "criterion": "|mu + s^2| < 4 SE for Delta <= 0.1",
+   "measured": "max 0.99 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "B9",
+   "benchmark": "cascade increments follow the direct law (n = 8, L = 64)",
+   "introduced": "original plan",
+   "criterion": "two-sample KS p > 0.01 at Delta = 0.2 and 1",
+   "measured": "p = 0.921, p = 0.899",
+   "status": "PASS"
+  },
+  {
+   "id": "B21",
+   "benchmark": "increment law at Delta = 1 over five independent streams",
+   "introduced": "amendment A4",
+   "criterion": "median p > 0.05 and at most one p < 0.01",
+   "measured": "p = [0.633, 0.936, 0.675, 0.869, 0.805]",
+   "status": "PASS"
+  },
+  {
+   "id": "Q2a",
+   "benchmark": "mean log-gain equals k mu_xi at every checkpoint (n = 8, all Delta)",
+   "introduced": "original plan",
+   "criterion": "|z| < 4 at every checkpoint",
+   "measured": "max |z| = 1.74",
+   "status": "PASS"
+  },
+  {
+   "id": "Q2b",
+   "benchmark": "standardized log-gain is normal at L = 64 and 128",
+   "introduced": "original plan",
+   "criterion": "KS p > 0.01 against N(0, 1) with theory parameters",
+   "measured": "min p = 0.119",
+   "status": "PASS"
+  },
+  {
+   "id": "V8",
+   "benchmark": "cascade martingale E[G_k^2] = 1 at every checkpoint (Delta = 0.2)",
+   "introduced": "amendment A6",
+   "criterion": "|mean - 1| < 4 SE",
+   "measured": "max 1.03 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "C1",
+   "benchmark": "sample-size convergence of mean ln G_64 and s_xi^2",
+   "introduced": "original plan",
+   "criterion": "relative change < 0.1% on doubling N",
+   "measured": "4.10%, 0.024%",
+   "status": "FAIL"
+  },
+  {
+   "id": "C1s",
+   "benchmark": "the same changes against their Monte Carlo standard errors",
+   "introduced": "amendment A6",
+   "criterion": "change < 4 SE of the difference",
+   "measured": "1.68 SE, 0.39 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "B11",
+   "benchmark": "tier-0 certificate for Haar, Givens and Fourier meshes (n = 8, L = 64)",
+   "introduced": "original plan",
+   "criterion": "99% upper limit <= 1/c at every c, 2e4 and 2e5 cascades",
+   "measured": "holds for 3 of 3 meshes (2e4), 3 of 3 (2e5)",
+   "status": "PASS"
+  },
+  {
+   "id": "V9",
+   "benchmark": "tier-1 certificate, all three meshes",
+   "introduced": "amendment A6",
+   "criterion": "zero certified violations",
+   "measured": "0 violations",
+   "status": "PASS"
+  },
+  {
+   "id": "V10",
+   "benchmark": "tier-2 certificate, Haar meshes",
+   "introduced": "amendment A6",
+   "criterion": "zero certified violations",
+   "measured": "0 violations",
+   "status": "PASS"
+  },
+  {
+   "id": "B16",
+   "benchmark": "tier-0 certificate under inter-mode loss correlation 0 to 1",
+   "introduced": "amendment A2",
+   "criterion": "zero certified violations; mean power gain 1 within 4 SE",
+   "measured": "0 violations; max 0.88 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "B19",
+   "benchmark": "tier-0 certificate for uniform, two-point and Beta loss laws",
+   "introduced": "amendment A4",
+   "criterion": "zero certified violations; mean power gain 1 within 4 SE",
+   "measured": "0 violations; max 1.07 SE",
+   "status": "PASS"
+  },
+  {
+   "id": "B20",
+   "benchmark": "tier-0 certificate for n = 4 to 32",
+   "introduced": "amendment A4",
+   "criterion": "zero certified violations",
+   "measured": "0 violations",
+   "status": "PASS"
+  },
+  {
+   "id": "B17",
+   "benchmark": "mean power gain (1 + d)^(2L) and corrected certificate, L = [64]",
+   "introduced": "amendment A2",
+   "criterion": "|mean - (1 + d)^(2L)| < 4 SE; zero certified violations of (1 + d)^(2L)/c",
+   "measured": "max 2.13 SE; 0 violations",
+   "status": "PASS"
+  },
+  {
+   "id": "B25",
+   "benchmark": "mean power gain (1 + d)^(2L) and corrected certificate, L = [256, 1024]",
+   "introduced": "amendment A6",
+   "criterion": "|mean - (1 + d)^(2L)| < 4 SE; zero certified violations of (1 + d)^(2L)/c",
+   "measured": "max 1.13 SE; 0 violations",
+   "status": "PASS"
+  },
+  {
+   "id": "Q4",
+   "benchmark": "peak interior gain and certified sensitivity both grow with Delta",
+   "introduced": "original plan",
+   "criterion": "Spearman >= 0.95 on both axes at L = 16 and 32",
+   "measured": "min Spearman 1.000",
+   "status": "PASS"
+  }
+ ]
+}
