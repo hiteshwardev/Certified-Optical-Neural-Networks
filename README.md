@@ -1,68 +1,58 @@
-# Certified error and output-power bounds for deep loss-compensated photonic networks
+# Certified Error and Output-Power Bounds for Deep Loss-Compensated Photonic Networks
 
-Hitesh Kumar Singh, Department of Physics, Kurukshetra University, Kurukshetra, Haryana, India
+**Author:** Hitesh Kumar Singh · [ORCID: 0009-0008-1583-4848](https://orcid.org/0009-0008-1583-4848)
+*Department of Physics, Kurukshetra University, Kurukshetra, Haryana, India*
 
-This repository contains the complete computational study behind the article of the same title. Deep photonic processors that restore optical loss with gain are built from non-unitary, and in general non-normal, layers. The study derives and tests
+---
 
-* a layer-resolved certificate for the output error caused by imperfect layers, its attainability, and its relation to the eigenvector condition number, the Petermann factors and the Kreiss constant of a layer;
-* how far eigenvalue estimates underestimate that certificate, both for single programmed layers with a physical gain-loss contrast and for deep random cascades, where the underestimate saturates at a closed-form limit $R_\infty(n)$;
-* the Lyapunov spectrum of loss-compensated Haar cascades and the exact law of the disorder-induced gain;
-* a hierarchy of tail certificates for the output power, the floor below which no mesh-independent certificate can go, and the calibration tolerance of the amplifier gain.
+## Abstract
 
-## Contents
+Deep loss-compensated photonic networks must control two competing risks: the accumulation of layer imperfections and fluctuations in output power. Because gain-compensated layers are generally non-normal, eigenvalue-based estimates can underestimate transient amplification. This work develops and numerically tests certified bounds for both quantities. For output error, a layer-resolved first-order certificate is derived from the norms of the partial network products, and each layer's contribution is shown to be attainable by a rank-one perturbation. Eigenvalue-based estimates are shown to underestimate certified sensitivity by a factor of 65.2 at depth 16, including in optimized physical layers with gain and loss. For random cascades with Haar-random meshes, a closed-form limiting eigenvalue deficit and a closed-form Lyapunov-spectrum gap are derived. For output power, a martingale-based certificate requires only mean-power gain compensation, independent of the mesh, input state, loss-distribution shape and inter-mode loss correlations under the stated assumptions. Tighter bounds, a floor for mesh-independent certificates and the accumulation of gain-calibration errors with depth are also derived.
 
-```
-notebook.ipynb      the complete study, from verification checks to the final benchmark table
-src/
-  model.py          loss-compensated layers, mesh ensembles, loss laws, cascade propagation
-  operators.py      non-normality measures, certificates, joint worst case, deep-cascade ensembles
-  tails.py          tail certificates and the exact tail of the mode-diagonal cascade
-  uncertainty.py    Clopper-Pearson limits and bootstrap intervals
-  plotting.py       single-panel figures with automated layout checks
-  records.py        writing the numerical records to results/
-tests/test_src.py   regression tests of the modules in src/
-figures/            every figure of the article, as PDF and 600 dpi PNG
-results/            numerical records written by the notebook (JSON)
-```
+## Core Objectives
 
-The notebook is self-contained: each stage states the physics, the mathematics and the algorithm before the code that carries it out, and every figure and number of the article is produced in it. The modules in `src/` hold only the functions that the notebook calls repeatedly.
+- Provide error bounds for deep, non-unitary photonic cascades that hold for every realization, not only in empirical or unitary settings.
+- Quantify how far eigenvalue-based reasoning underestimates the worst-case output error.
+- Bound the upper tail of the output power and translate the bounds into gain-calibration requirements.
 
-| Stage | Content |
-|---|---|
-| 0 | Model, notation and certificates |
-| V | Verification of the numerical tools against exact results |
-| A | The certificate chain on a strongly non-normal family of layers |
-| B | How much non-normality a physical layer can carry, with interferometer settings |
-| C | Random cascades: eigenvalue deficit, Lyapunov spectrum, deep-cascade limit, comparators, joint and structured perturbations |
-| D | Exact law of the disorder-induced gain |
-| E | Tail certificates for the output power, their robustness, and gain calibration |
-| F | Transient gain against certified sensitivity |
-| S | Benchmark table and headline results |
+## Scientific Significance
 
-## Reproducing the study
+Photonic processors with tens to over a hundred optical layers must restore loss with gain, so every imperfection is propagated and possibly amplified by all later layers. Non-normality makes eigenvalues unreliable for this. This project supplies the hardware counterpart of certified robustness: guarantees that a deep cascade stays within an error and power budget, with explicit design consequences such as calibration tolerance that shrinks inversely with depth.
 
-Python 3.11 and the package versions pinned in `requirements.txt` were used.
+## Methodological Approach
 
-```
-python -m venv .venv
-source .venv/bin/activate          # on Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-python -m pytest -q                # regression tests of src/
-jupyter lab notebook.ipynb         # then run all cells
-```
+- **Certificates:** an exact telescoping identity gives a first-order certificate built from prefix and suffix norms. Attainability is shown by rank-one perturbations, and the joint worst case is computed by alternating maximization.
+- **Non-normality analysis:** a chain of inequalities links the eigenvector condition number, Petermann factors and the Kreiss constant of a layer.
+- **Random cascades:** the Lyapunov spectrum and the deep-cascade deficit are derived from Haar-frame statistics and the overlap statistics of rank-one partial products.
+- **Output power:** a martingale argument and a hierarchy of tail bounds (Markov, Jensen-based moment bound, exact Haar moments), with an explicit mesh-independent floor.
+- **Testing:** 40 benchmarks with pass criteria fixed in a written analysis plan before computation; three failed and are reported with their causes.
 
-With conda, `conda env create -f environment.yml` creates the same environment. The notebook can also be executed without a browser:
+## Contributions
 
-```
-jupyter execute --inplace notebook.ipynb
-```
+1. A layer-resolved perturbation certificate that is attained layer by layer and tracked against the joint worst case.
+2. A quantification of the eigenvalue deficit, including an optimized physical layer (loss contrast 8.7 dB) with a deficit of about 100.
+3. A closed-form deep-cascade limit of the deficit, R∞(n) ≈ 4n/π, and the Lyapunov gap Δ²/[6(n + 1)] that sets the approach to it.
+4. A mean-power martingale certificate valid for any mesh, input, loss-law shape and inter-mode correlation, with a mesh-independent floor.
+5. A gain-calibration tolerance that scales inversely with depth.
 
-A full run takes about 20 minutes on a two-core processor and rewrites `results/` and `figures/`. Every random stream is derived from the master seed 20260716 and a text label through SHA-256, so the records are reproduced exactly with the pinned versions, independently of the order in which the stages are run.
+6. **Positioning relative to prior work.** Perturbation sums for matrix products and Kreiss-type transient bounds are standard tools (Trefethen and Embree), and pseudospectral bounds and Lipschitz certificates have recently been applied to learning dynamics and neural networks.
 
-## Benchmarks
+## Key Findings
 
-The analysis followed a written plan in which every benchmark and its pass criterion were fixed before the corresponding computation; later additions were recorded as numbered amendments before they were run. The notebook ends with the complete table. Of 40 benchmarks with a pass criterion, three fail and are reported in the article: B15, the pre-registered ten-fold eigenvalue deficit on random cascades, which cannot be reached because the deficit saturates at $R_\infty(8)=9.87$; B24, the agreement of every fitted asymptote with $R_\infty(n)$ within 5%, which fails for the one series that stops at a scaled depth below ten; and C1, a sample-size tolerance of 0.1% that lies below the Monte Carlo resolution of the production samples.
+- The certificate stays at 79% or more of the joint worst case in the random cascades examined (30 cascades per cell, n = 8).
+- The eigenvalue deficit reaches 65.2 for a constructed non-normal family and about 100 for an optimized physical layer at depth 16.
+- In deep Haar cascades the deficit saturates near 1.27 n (for example 9.87 at n = 8).
+- The tier-0 power certificate Pr[G² > c] ≤ 1/c held in every tested configuration; the Haar tail is about 14 times below it at c = 2.
+- Keeping the mean power within a factor of 2 requires a gain error of at most 0.54% at 64 layers and 0.034% at 1024; a 1% gain error invalidates the calibrated certificate at 64 layers.
 
-## License
+## Scope and Limitations
 
-The code is released under the MIT License (see `LICENSE`).
+The certificate is first order. The deep-cascade limit and exact power law use Haar meshes as a model of full mixing, and the loss law is idealized. All tests are numerical; no comparison with measured processor data is made. Three of 40 benchmarks failed and are discussed in the manuscript.
+
+## Roles
+
+Hitesh Kumar Singh is the sole author. Hitesh Kumar Singh conceived the study, derived the certificates, limits and tail bounds, wrote the code, designed and ran the benchmark plan, produced the figures and wrote the manuscript.
+
+## Reproducibility and Availability
+
+The repository contains the notebook, source code, numerical records and figures. Every random stream derives from a fixed master seed and a text label, and the notebook regenerates all numbers and figures in about 20 minutes on a two-core processor.
